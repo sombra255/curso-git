@@ -10,20 +10,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.CompraActivity"
-            android:label="@string/comprarPassagens" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity
+            android:name=".activities.CompraActivity"
+            android:label="@string/comprarPassagens">
         </activity>
-        <activity android:name=".activities.ListaAlunoActivity"
-            android:label="@string/agenda">
-        </activity>
+        <activity
+            android:name=".activities.ListaAlunoActivity"
+            android:label="@string/agenda"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".activities.FormularioActivity"
-            android:label="@string/formulario"></activity>
+        <activity
+            android:name=".activities.FormularioActivity"
+            android:label="@string/formulario" />
+        <activity
+            android:name=".activities.SplashScreenActivity"
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
