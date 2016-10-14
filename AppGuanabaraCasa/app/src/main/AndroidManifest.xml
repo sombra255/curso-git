@@ -12,11 +12,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.CompraActivity"
-            android:label="@string/comprarPassagens">
-        </activity>
+            android:label="@string/comprarPassagens"></activity>
         <activity
             android:name=".activities.ListaAlunoActivity"
-            android:label="@string/agenda"></activity>
+            android:label="@string/agenda" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".activities.FormularioActivity"
@@ -25,6 +24,8 @@
             android:name=".activities.SplashScreenActivity"
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".FrameActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
