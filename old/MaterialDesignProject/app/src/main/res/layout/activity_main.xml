@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/TransperantToolbar">
+
+            <ImageView
+                android:id="@+id/iv_settings"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/icone_logo_cabecalho"
+                android:layout_gravity="right"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_below="@id/tb_main"
+        android:id="@+id/fragment_compra"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/compra_btn_ida_volta"
+                android:layout_width="153sp"
+                android:layout_height="37sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/fundo_botao_ida_volta_ativo" />
+
+            <Button
+                android:id="@+id/compra_btn_ida"
+                android:layout_width="153sp"
+                android:layout_height="37sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/fundo_botao_somente_ida_inativo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/compra_btn_origem"
+                android:layout_width="153sp"
+                android:layout_height="76.5sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:textColor="@color/cor_label_tela_compras"
+                android:background="@drawable/fundo_botao_origem"
+                android:scrollHorizontally="true"
+                android:lines="2"
+                android:ellipsize="end" />
+
+            <Button
+                android:id="@+id/compra_btn_destino"
+                android:layout_width="153sp"
+                android:layout_height="76.5sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:textColor="@color/cor_label_tela_compras"
+                android:background="@drawable/fundo_botao_destino"
+                android:scrollHorizontally="true"
+                android:lines="2"
+                android:ellipsize="end"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="153sp"
+                android:layout_height="76.5sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:textColor="@color/cor_label_tela_compras"
+                android:background="@drawable/fundo_botao_data_partida"
+                android:id="@+id/compra_btn_data_partida"/>
+
+            <Button
+                android:id="@+id/compra_btn_data_retorno"
+                android:layout_width="153sp"
+                android:layout_height="76.5sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:textColor="@color/cor_label_tela_compras"
+                android:background="@drawable/fundo_botao_data_retorno" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="44sp"
+                android:background="@drawable/fundo_botao_pesquisar"
+                android:id="@+id/compra_btn_pesquisar"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/inc_tb_bottom"
+        layout="@layout/toolbar_bottom" />
+
+</RelativeLayout>
+
