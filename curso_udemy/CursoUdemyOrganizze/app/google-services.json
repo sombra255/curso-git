@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "781806140932",
+    "firebase_url": "https://curso-udemy-organizze.firebaseio.com",
+    "project_id": "curso-udemy-organizze",
+    "storage_bucket": "curso-udemy-organizze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781806140932:android:86b10b4a73b75ab1",
+        "android_client_info": {
+          "package_name": "br.com.fabricio.cursoudemyorganizze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781806140932-r7ip4f303r7i4gh2crfrnir9uqi1okng.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fabricio.cursoudemyorganizze",
+            "certificate_hash": "088edc5530d9041864d99ed28d056cb73cea3bb5"
+          }
+        },
+        {
+          "client_id": "781806140932-kg7jl58sectekq3h917ji9jp49tnjkuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD76Aj3PaR7zZ7XeOMEhFXmlidDP9-n7Gw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781806140932-kg7jl58sectekq3h917ji9jp49tnjkuh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
