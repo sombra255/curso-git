@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1027864795237",
+    "firebase_url": "https://curso-udemy-firebase-802e1.firebaseio.com",
+    "project_id": "curso-udemy-firebase-802e1",
+    "storage_bucket": "curso-udemy-firebase-802e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027864795237:android:48cdc64ff51c4dd1",
+        "android_client_info": {
+          "package_name": "br.com.fabricio.cursoudemyfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027864795237-ft0cnk338h0f43j8b8gkmguk12bdjk56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fabricio.cursoudemyfirebase",
+            "certificate_hash": "6ef5c5debbd6077a33385f4822631753ef0def42"
+          }
+        },
+        {
+          "client_id": "1027864795237-3nmrj0ndjarvj6d2fmd4n99nrsakg5ho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfQjGZkE7tZlhBxPsQYYIogx95V9DAkA0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027864795237-3nmrj0ndjarvj6d2fmd4n99nrsakg5ho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
