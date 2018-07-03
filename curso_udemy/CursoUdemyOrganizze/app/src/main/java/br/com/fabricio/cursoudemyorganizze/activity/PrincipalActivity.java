@@ -1,5 +1,6 @@
 package br.com.fabricio.cursoudemyorganizze.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,11 +32,11 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     public void adicionarReceita(View view) {
-
+        startActivity(new Intent(this, ReceitaActivity.class));
     }
 
     public void adicionarDespesa(View view) {
-
+        startActivity(new Intent(this, DespesaActivity.class));
     }
 }
 
