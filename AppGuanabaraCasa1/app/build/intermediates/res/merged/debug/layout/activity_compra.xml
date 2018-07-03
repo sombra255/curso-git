@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_compra"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fundo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="153sp"
+            android:layout_height="37sp"
+            android:background="@drawable/fundo_botao_ida_volta_ativo"
+            android:layout_weight="1"
+            android:id="@+id/compra_btn_ida_volta"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="153sp"
+            android:layout_height="37sp"
+            android:background="@drawable/fundo_botao_somente_ida_inativo"
+            android:layout_weight="1"
+            android:id="@+id/compra_btn_ida"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="153sp"
+            android:layout_height="76.5sp"
+            android:background="@drawable/fundo_botao_origem"
+            android:layout_weight="1"
+            android:id="@+id/compra_btn_origem"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="153sp"
+            android:layout_height="76.5sp"
+            android:background="@drawable/fundo_botao_destino"
+            android:layout_weight="1"
+            android:id="@+id/compra_btn_destino"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="153sp"
+            android:layout_height="76.5sp"
+            android:background="@drawable/fundo_botao_data_partida"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="153sp"
+            android:layout_height="76.5sp"
+            android:background="@drawable/fundo_botao_data_retorno"
+            android:layout_weight="1"
+            android:id="@+id/compra_btn_data_retorno"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="44sp"
+            android:background="@drawable/fundo_botao_pesquisar"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

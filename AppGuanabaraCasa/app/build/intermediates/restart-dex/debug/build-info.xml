@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    api-level="24"
+    density="420dpi"
+    format="8"
+    plugin-version="2.2.0"
+    timestamp="444176374548557"
+    token="7107052039198475304"
+    verifier="CLASS_ADDED" >
+
+    <task
+        name="javac"
+        duration="192" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="56" />
+    <task
+        name="verifier"
+        duration="4" />
+
+    <artifact
+        location="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+        type="DEX" />
+
+    <build
+        timestamp="440053631323570"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="441424151158837"
+        verifier="FIELD_TYPE_CHANGE" >
+        <artifact
+            location="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="444176374548557"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>

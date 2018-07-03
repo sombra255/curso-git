@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_4084cfab5d7ba5901ceb908c6dbc3551b697b7e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_668bdf1e5ae2ed59f0f77467e2d561f3620a6a1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_21042e4ed29371c66f7e31e6c47e30c09a16902c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_cd0de26d44980f58289d8bdde4f640e6848f0987\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_1a2b7f05d53a232e66cc34eda031d7f0f2dbe047\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_74b6d5366c730776665792c9850977f7fab4e04f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_05740369a6235d2a361808033dbdd0a7d0242bd0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_d44b338c037e9e1985c094fee02706118d109b1b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_bbbe6e454db0f860fe176f83f3cbfe78fd9e227b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9f2d5857299a88d4d2cdfd3f6279beb75db43b25">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_58211d02484e35f21d8213ced3c4d9407b05414a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_71f4d5485d6597de30a32e29feeec222bd958b3c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_e9ec49dc816a26adfbd7842e460288293efe4d1b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_8b80cdf8382314bb7737859d22bec48f261458d1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_f15672514ad97252b54a542d0950d2f9ebdf7b8c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_65ca9a2a5983962c012a29d0dfb33c613579695a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_cbb00821216bfd5874910d34a8b8443d3d14222e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="408643e96dd4b02bdb8c30da22b9a5d2acbf21f4">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d642ba834850e3d0bf2a90b0881f674acb928f5f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_20c6bdffc92cded0b72572ae87f7df9b1d15147a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Fabricio.Fabricio-pc\AndroidStudioProjects\AppGuanabaraCasa\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_be441a76fc3987d59b99e58c4af20ef266c05723\classes.dex" />
+    </item>
+
+</items>

@@ -1,0 +1,7 @@
+#Thu Oct 13 19:41:57 BRT 2016
+base.0=C\:\\Users\\Fabricio.Fabricio-pc\\AndroidStudioProjects\\AppGuanabaraCasa\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_d642ba834850e3d0bf2a90b0881f674acb928f5f
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Fabricio.Fabricio-pc\\AndroidStudioProjects\\AppGuanabaraCasa\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_58211d02484e35f21d8213ced3c4d9407b05414a\\classes.dex
+base.1=C\:\\Users\\Fabricio.Fabricio-pc\\AndroidStudioProjects\\AppGuanabaraCasa\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_58211d02484e35f21d8213ced3c4d9407b05414a
+file.0=C\:\\Users\\Fabricio.Fabricio-pc\\AndroidStudioProjects\\AppGuanabaraCasa\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_d642ba834850e3d0bf2a90b0881f674acb928f5f\\classes.dex

@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnComecar2" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBtnEntrar" />
 
     <TextView
         android:id="@+id/textView6"
@@ -37,52 +37,48 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail2"
+        app:layout_constraintBottom_toTopOf="@+id/loginEdtEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/edtEmail2"
+        android:id="@+id/loginEdtEmail"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:drawableLeft="@drawable/ic_email_gray_24dp"
         android:drawablePadding="5dp"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textPersonName"
-        android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/edtSenha2"
+        app:layout_constraintBottom_toTopOf="@+id/loginEdtSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/edtSenha2"
+        android:id="@+id/loginEdtSenha"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:drawableLeft="@drawable/ic_lock_gray_24dp"
         android:drawablePadding="5dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Senha"
-        app:layout_constraintBottom_toTopOf="@+id/btnComecar2"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/loginBtnEntrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail2" />
+        app:layout_constraintTop_toBottomOf="@+id/loginEdtEmail" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnComecar2"
+        android:id="@+id/loginBtnEntrar"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -95,5 +91,5 @@
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenha2" />
+        app:layout_constraintTop_toBottomOf="@+id/loginEdtSenha" />
 </android.support.constraint.ConstraintLayout>
