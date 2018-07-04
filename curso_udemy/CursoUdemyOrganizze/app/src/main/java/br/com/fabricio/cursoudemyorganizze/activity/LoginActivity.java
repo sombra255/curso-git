@@ -15,11 +15,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-
-import java.util.logging.Logger;
-
 import br.com.fabricio.cursoudemyorganizze.R;
 import br.com.fabricio.cursoudemyorganizze.config.ConfiguracaoFirebase;
 import br.com.fabricio.cursoudemyorganizze.model.Usuario;

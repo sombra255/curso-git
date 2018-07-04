@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import br.com.fabricio.cursoudemyorganizze.R;
 import br.com.fabricio.cursoudemyorganizze.config.ConfiguracaoFirebase;
 import br.com.fabricio.cursoudemyorganizze.model.Usuario;
+import br.com.fabricio.cursoudemyorganizze.utils.Base64Custom;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -69,7 +70,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    private void cadastrarUsuario(Usuario usuario) {
+    private void cadastrarUsuario(final Usuario usuario) {
         auth = ConfiguracaoFirebase.autenticacaoFirebase();
 
         auth.createUserWithEmailAndPassword(usuario.getEmail(), usuario.getSenha())
@@ -77,6 +78,9 @@ public class CadastroActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            String idUsuario = Base64Custom.encodeToString(usuario.getEmail());
+                            usuario.setIdUsuario(idUsuario);
+                            usuario.salvar();
                             Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
                             finish();
                         } else {
