@@ -1,8 +1,10 @@
 package br.com.fabricio.cursoudemyorganizze.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,11 +34,12 @@ import java.util.List;
 import br.com.fabricio.cursoudemyorganizze.R;
 import br.com.fabricio.cursoudemyorganizze.adapter.ReceitaDespesaAdapter;
 import br.com.fabricio.cursoudemyorganizze.config.ConfiguracaoFirebase;
+import br.com.fabricio.cursoudemyorganizze.enums.TipoMovimentacao;
 import br.com.fabricio.cursoudemyorganizze.model.Movimentacao;
 import br.com.fabricio.cursoudemyorganizze.model.Usuario;
 import br.com.fabricio.cursoudemyorganizze.utils.Base64Custom;
 
-public class PrincipalActivity extends AppCompatActivity{
+public class PrincipalActivity extends AppCompatActivity {
 
     private MaterialCalendarView calendarView;
     private TextView txtSaudacao, txtSaldo;
@@ -49,6 +53,7 @@ public class PrincipalActivity extends AppCompatActivity{
     private ValueEventListener valueEventListenerMovimentacao;
     private RecyclerView recyclerView;
     private List<Movimentacao> lsMovimentacao = new ArrayList<>();
+    private Movimentacao movimentacao;
     private ReceitaDespesaAdapter receitaDespesaAdapter;
     private DatabaseReference movimentacaoRef;
     private String mesAnoSelecionado;
@@ -88,7 +93,7 @@ public class PrincipalActivity extends AppCompatActivity{
         recyclerView.setAdapter(receitaDespesaAdapter);
     }
 
-    public void swipe(){
+    public void swipe() {
         ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -105,25 +110,82 @@ public class PrincipalActivity extends AppCompatActivity{
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 Log.i("swipe", "item arrastado");
+                excluirMovimentacao(viewHolder);
             }
         };
 
         new ItemTouchHelper(itemTouch).attachToRecyclerView(recyclerView);
     }
 
-    public void recuperaMovimentacoes(){
-        String idUsuario = Base64Custom.encodeToString(firebaseAuth.getCurrentUser().getEmail());;
+    public void excluirMovimentacao(final RecyclerView.ViewHolder viewHolder) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Excluir Movimentação da Conta");
+        alertDialog.setMessage("Você tem certeza que deseja realmente excluir essa movimentação da sua conta?");
+        alertDialog.setCancelable(false);
+
+        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                int position = viewHolder.getAdapterPosition();
+                movimentacao = lsMovimentacao.get(position);
+
+                String idUsuario = Base64Custom.encodeToString(firebaseAuth.getCurrentUser().getEmail());
+                usuarioRef = databaseReference.child("usuarios").child(idUsuario);
+                movimentacaoRef = databaseReference.child("movimentacao")
+                        .child(idUsuario)
+                        .child(mesAnoSelecionado);
+
+                movimentacaoRef.child(movimentacao.getId()).removeValue();
+                receitaDespesaAdapter.notifyItemRemoved(position);
+
+                atualizarSaldo();
+
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(PrincipalActivity.this, "Cancelado", Toast.LENGTH_LONG).show();
+                receitaDespesaAdapter.notifyDataSetChanged();
+            }
+        });
+
+        AlertDialog alert = alertDialog.create();
+        alert.show();
+    }
+
+    public void atualizarSaldo(){
+
+        String idUsuario = Base64Custom.encodeToString(firebaseAuth.getCurrentUser().getEmail());
+        usuarioRef = databaseReference.child("usuarios").child(idUsuario);
+
+        if (movimentacao.getTipo().equals(TipoMovimentacao.RECEITA.getDescricao())){
+            receitaTotal = receitaTotal - movimentacao.getValor();
+            usuarioRef.child("receitaTotal").setValue(receitaTotal);
+        }
+
+        if (movimentacao.getTipo().equals(TipoMovimentacao.DESPESA.getDescricao())){
+            despesaTotal = despesaTotal - movimentacao.getValor();
+            usuarioRef.child("despesaTotal").setValue(despesaTotal);
+        }
+    }
+
+    public void recuperaMovimentacoes() {
+        String idUsuario = Base64Custom.encodeToString(firebaseAuth.getCurrentUser().getEmail());
         usuarioRef = databaseReference.child("usuarios").child(idUsuario);
         movimentacaoRef = databaseReference.child("movimentacao")
-        .child(idUsuario)
-        .child(mesAnoSelecionado);
+                .child(idUsuario)
+                .child(mesAnoSelecionado);
 
         valueEventListenerMovimentacao = movimentacaoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 lsMovimentacao.clear();
-                for(DataSnapshot dados : dataSnapshot.getChildren()){
-                    lsMovimentacao.add(dados.getValue(Movimentacao.class));
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    Movimentacao movimentacao = dados.getValue(Movimentacao.class);
+                    movimentacao.setId(dados.getKey());
+                    lsMovimentacao.add(movimentacao);
                 }
                 receitaDespesaAdapter.notifyDataSetChanged();
             }
@@ -135,9 +197,9 @@ public class PrincipalActivity extends AppCompatActivity{
         });
     }
 
-    public void recuperarResumo(){
+    public void recuperarResumo() {
         //criar um metodo dentro de configuracaoFirebase
-        String idUsuario = Base64Custom.encodeToString(firebaseAuth.getCurrentUser().getEmail());;
+        String idUsuario = Base64Custom.encodeToString(firebaseAuth.getCurrentUser().getEmail());
         usuarioRef = databaseReference.child("usuarios").child(idUsuario);
 
         Log.i("Evento", "Evento foi iniciado");
@@ -151,8 +213,8 @@ public class PrincipalActivity extends AppCompatActivity{
 
                 DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
-                txtSaudacao.setText("Olá, "+usuario.getNome());
-                txtSaldo.setText("R$ "+decimalFormat.format(resumoUsuario));
+                txtSaudacao.setText("Olá, " + usuario.getNome());
+                txtSaldo.setText("R$ " + decimalFormat.format(resumoUsuario));
             }
 
             @Override
@@ -170,7 +232,7 @@ public class PrincipalActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menu_sair:
                 //evento sair
                 firebaseAuth.signOut();
@@ -182,18 +244,18 @@ public class PrincipalActivity extends AppCompatActivity{
     }
 
     private void iniciaCalendario() {
-        String [] mesesPortugues = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
+        String[] mesesPortugues = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
         calendarView.setTitleMonths(mesesPortugues);
 
         CalendarDay dataAtual = calendarView.getCurrentDate();
-        String mesSelecionado = String.format("%02d", (dataAtual.getMonth()+1));
-        mesAnoSelecionado = String.valueOf( mesSelecionado+""+ dataAtual.getYear());
+        String mesSelecionado = String.format("%02d", (dataAtual.getMonth() + 1));
+        mesAnoSelecionado = String.valueOf(mesSelecionado + "" + dataAtual.getYear());
 
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView materialCalendarView, CalendarDay calendarDay) {
-                String mesSelecionado = String.format("%02d", (calendarDay.getMonth()+1));
-                mesAnoSelecionado = String.valueOf(mesSelecionado +""+ calendarDay.getYear());
+                String mesSelecionado = String.format("%02d", (calendarDay.getMonth() + 1));
+                mesAnoSelecionado = String.valueOf(mesSelecionado + "" + calendarDay.getYear());
 
                 movimentacaoRef.removeEventListener(valueEventListenerMovimentacao);
                 recuperaMovimentacoes();

@@ -9,6 +9,7 @@ import br.com.fabricio.cursoudemyorganizze.utils.DateCustom;
 
 public class Movimentacao {
 
+    private String id;
     private String data;
     private String categoria;
     private String descricao;
@@ -30,6 +31,14 @@ public class Movimentacao {
                 .child(mesAno)
                 .push()
                 .setValue(this);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getData() {
