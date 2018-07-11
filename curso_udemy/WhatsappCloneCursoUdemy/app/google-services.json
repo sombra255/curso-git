@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "560700381184",
+    "firebase_url": "https://curso-udemy-whatsapp-clone.firebaseio.com",
+    "project_id": "curso-udemy-whatsapp-clone",
+    "storage_bucket": "curso-udemy-whatsapp-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560700381184:android:22f37cd1601eec3a",
+        "android_client_info": {
+          "package_name": "br.com.fabricio.whatsappclonecursoudemy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560700381184-ag7lv7ds8e3m05dkgj60q6c0hbkj8gii.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fabricio.whatsappclonecursoudemy",
+            "certificate_hash": "088edc5530d9041864d99ed28d056cb73cea3bb5"
+          }
+        },
+        {
+          "client_id": "560700381184-mg7kera9ilhpirakeuumh4u5ho76k1c7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCewdEy2Wq0xU9YB7xgdc2Cf00ZaWE_qs0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560700381184-mg7kera9ilhpirakeuumh4u5ho76k1c7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
