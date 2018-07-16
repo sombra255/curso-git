@@ -6,4 +6,5 @@
     <color name="colorChat">#DCF8C6</color>
     <color name="colorChatBackground">#ECE5DD</color>
     <color name="checkMark">#34B7F1</color>
+    <color name="cinza_claro">#eeeeee</color>
 </resources>

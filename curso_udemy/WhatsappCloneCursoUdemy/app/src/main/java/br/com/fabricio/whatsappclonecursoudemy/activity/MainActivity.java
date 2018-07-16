@@ -1,5 +1,6 @@
 package br.com.fabricio.whatsappclonecursoudemy.activity;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private FirebaseAuth firebaseAuth = FirebaseHelper.autenticacaoFirebase();
 
     @Override
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbarPrincipal);
+        Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("WhatsApp");
         setSupportActionBar(toolbar);
 
@@ -58,8 +58,15 @@ public class MainActivity extends AppCompatActivity {
                 deslogarUsuario();
                 finish();
                 break;
+            case R.id.menuConfiguracoes:
+                abrirTelaConfiguracoes();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void abrirTelaConfiguracoes() {
+        startActivity(new Intent(MainActivity.this, ConfiguracoesActivity.class));
     }
 
     private void deslogarUsuario() {
