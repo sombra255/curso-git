@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import br.com.fabricio.whatsappclonecursoudemy.R;
 import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
+import br.com.fabricio.whatsappclonecursoudemy.helper.UsuarioFirebase;
 import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import br.com.fabricio.whatsappclonecursoudemy.utils.Base64Custom;
 
@@ -84,9 +85,9 @@ public class CadastroActivity extends AppCompatActivity {
                             usuario.setId(idUsuario);
                             usuario.salvar();
                             Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
+                            UsuarioFirebase.atualizaNomeUsuario(usuario.getNome());
                             finish();
                         } else {
-
                             String excecao = "";
                             try {
                                 throw task.getException();
