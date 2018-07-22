@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import br.com.fabricio.whatsappclonecursoudemy.utils.Base64Custom;
 
 public class UsuarioFirebase {
@@ -64,5 +65,19 @@ public class UsuarioFirebase {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static Usuario getUsuarioLogado(){
+        FirebaseUser firebaseUser = getFirebaseUser();
+        Usuario usuario = new Usuario();
+        usuario.setEmail(firebaseUser.getEmail());
+        usuario.setNome(firebaseUser.getDisplayName());
+
+        if(firebaseUser.getPhotoUrl() == null){
+            usuario.setFoto("");
+        }else {
+            usuario.setFoto(firebaseUser.getPhotoUrl().toString());
+        }
+        return usuario;
     }
 }
