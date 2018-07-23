@@ -7,4 +7,7 @@
     <color name="colorChatBackground">#ECE5DD</color>
     <color name="checkMark">#34B7F1</color>
     <color name="cinza_claro">#eeeeee</color>
+    
+    <color name="balaoRemetente">#dbf9c4</color>
+    
 </resources>

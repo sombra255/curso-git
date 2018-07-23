@@ -74,7 +74,9 @@ public class ContatosFragment extends Fragment {
         recyclerViewContatos.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerViewContatos, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                Usuario usuarioSelecionado = lsUsuarios.get(position);
                 Intent i = new Intent(getActivity(), ChatActivity.class);
+                i.putExtra("chatContato", usuarioSelecionado);
                 startActivity(i);
             }
 

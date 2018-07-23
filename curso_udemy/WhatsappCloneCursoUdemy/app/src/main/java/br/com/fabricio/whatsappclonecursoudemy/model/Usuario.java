@@ -3,13 +3,14 @@ package br.com.fabricio.whatsappclonecursoudemy.model;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
 import br.com.fabricio.whatsappclonecursoudemy.helper.UsuarioFirebase;
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private String id;
     private String nome;

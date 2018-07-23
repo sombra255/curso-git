@@ -42,6 +42,7 @@ public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyView
         if(usuario.getFoto() != null){
             Uri uri = Uri.parse(usuario.getFoto());
             Glide.with(context).load(uri).into(holder.imagem);
+
         }else {
             holder.imagem.setImageResource(R.drawable.padrao);
         }
