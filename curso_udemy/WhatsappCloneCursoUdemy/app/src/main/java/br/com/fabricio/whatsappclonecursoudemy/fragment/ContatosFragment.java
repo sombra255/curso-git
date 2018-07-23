@@ -99,10 +99,13 @@ public class ContatosFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                lsUsuarios.clear();
+
                 for (DataSnapshot d : dataSnapshot.getChildren()){
                     Usuario usuario = d.getValue(Usuario.class);
 
                     if(!usuarioAtual.getEmail().equals(usuario.getEmail())){
+
                         lsUsuarios.add(usuario);
                     }
                 }
