@@ -39,6 +39,7 @@ import br.com.fabricio.whatsappclonecursoudemy.adapter.MensagensAdapter;
 import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
 import br.com.fabricio.whatsappclonecursoudemy.helper.UsuarioFirebase;
 import br.com.fabricio.whatsappclonecursoudemy.model.Conversa;
+import br.com.fabricio.whatsappclonecursoudemy.model.Grupo;
 import br.com.fabricio.whatsappclonecursoudemy.model.Mensagem;
 import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import br.com.fabricio.whatsappclonecursoudemy.utils.Base64Custom;
@@ -62,6 +63,7 @@ public class ChatActivity extends AppCompatActivity {
     private ChildEventListener childEventListenerMensagens;
     private ImageView imageViewFotoChat;
     private StorageReference storage;
+    private Grupo grupo;
 
     @Override
     protected void onStart() {
@@ -98,18 +100,35 @@ public class ChatActivity extends AppCompatActivity {
         //recuperar dados do usuario
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            usuarioDestinatario = (Usuario) bundle.getSerializable("chatContato");
-            textViewNomeChat.setText(usuarioDestinatario.getNome());
+            if(bundle.containsKey("chatGrupo")){
+                grupo = (Grupo) bundle.getSerializable("chatGrupo");
+                textViewNomeChat.setText(grupo.getNome());
 
-            String foto = usuarioDestinatario.getFoto();
-            if (foto != null) {
-                Uri uri = Uri.parse(usuarioDestinatario.getFoto());
-                Glide.with(ChatActivity.this).load(uri).into(circleImageViewChat);
-            } else {
-                circleImageViewChat.setImageResource(R.drawable.padrao);
+                String foto = grupo.getFoto();
+                if (foto != null) {
+                    Uri uri = Uri.parse(foto);
+                    Glide.with(ChatActivity.this).load(uri).into(circleImageViewChat);
+                } else {
+                    circleImageViewChat.setImageResource(R.drawable.padrao);
+                }
+
+                idUsuarioDestinatario = grupo.getId();
+
+            }else {
+                usuarioDestinatario = (Usuario) bundle.getSerializable("chatContato");
+                textViewNomeChat.setText(usuarioDestinatario.getNome());
+
+                String foto = usuarioDestinatario.getFoto();
+                if (foto != null) {
+                    Uri uri = Uri.parse(usuarioDestinatario.getFoto());
+                    Glide.with(ChatActivity.this).load(uri).into(circleImageViewChat);
+                } else {
+                    circleImageViewChat.setImageResource(R.drawable.padrao);
+                }
+
+                idUsuarioDestinatario = Base64Custom.encodeToString(usuarioDestinatario.getEmail());
             }
 
-            idUsuarioDestinatario = Base64Custom.encodeToString(usuarioDestinatario.getEmail());
         }
 
         //configuracao adapter

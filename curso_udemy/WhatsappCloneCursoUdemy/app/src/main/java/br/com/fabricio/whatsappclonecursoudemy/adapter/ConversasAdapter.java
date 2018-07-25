@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.com.fabricio.whatsappclonecursoudemy.R;
 import br.com.fabricio.whatsappclonecursoudemy.model.Conversa;
+import br.com.fabricio.whatsappclonecursoudemy.model.Grupo;
 import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -39,14 +40,28 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Conversa conversa = lsConversas.get(position);
         Usuario usuario = conversa.getUsuarioExibicao();
-        holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
-        holder.nome.setText(usuario.getNome());
 
-        if(usuario.getFoto() != null){
-            Uri uri = Uri.parse(usuario.getFoto());
-            Glide.with(context).load(uri).into(holder.imagem);
+        if(conversa.getIsGroup().equals("true")){
+            Grupo grupo = conversa.getGrupo();
+            holder.nome.setText(grupo.getNome());
+
+            if(grupo.getFoto() != null){
+                Uri uri = Uri.parse(grupo.getFoto());
+                Glide.with(context).load(uri).into(holder.imagem);
+            }else {
+                holder.imagem.setImageResource(R.drawable.padrao);
+            }
+
         }else {
-            holder.imagem.setImageResource(R.drawable.padrao);
+            holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
+            holder.nome.setText(usuario.getNome());
+
+            if(usuario.getFoto() != null){
+                Uri uri = Uri.parse(usuario.getFoto());
+                Glide.with(context).load(uri).into(holder.imagem);
+            }else {
+                holder.imagem.setImageResource(R.drawable.padrao);
+            }
         }
     }
 

@@ -23,6 +23,7 @@ import java.util.List;
 
 import br.com.fabricio.whatsappclonecursoudemy.R;
 import br.com.fabricio.whatsappclonecursoudemy.activity.ChatActivity;
+import br.com.fabricio.whatsappclonecursoudemy.activity.GrupoActivity;
 import br.com.fabricio.whatsappclonecursoudemy.adapter.ContatosAdapter;
 import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
 import br.com.fabricio.whatsappclonecursoudemy.helper.UsuarioFirebase;
@@ -75,9 +76,18 @@ public class ContatosFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Usuario usuarioSelecionado = lsUsuarios.get(position);
-                Intent i = new Intent(getActivity(), ChatActivity.class);
-                i.putExtra("chatContato", usuarioSelecionado);
-                startActivity(i);
+
+                boolean cabecalho = usuarioSelecionado.getEmail().isEmpty();
+
+                if(cabecalho){
+                    Intent i = new Intent(getActivity(), GrupoActivity.class);
+                    startActivity(i);
+
+                }else {
+                    Intent i = new Intent(getActivity(), ChatActivity.class);
+                    i.putExtra("chatContato", usuarioSelecionado);
+                    startActivity(i);
+                }
             }
 
             @Override
@@ -91,6 +101,12 @@ public class ContatosFragment extends Fragment {
             }
         }));
 
+        //cria um usuario sem email que será o cabecalho, a campo email vazio é oq define o campo como cabecalho
+        Usuario usuarioGrupo = new Usuario();
+        usuarioGrupo.setNome("Novo Grupo");
+        usuarioGrupo.setEmail("");
+        lsUsuarios.add(usuarioGrupo);
+
         return view;
     }
 
@@ -98,8 +114,6 @@ public class ContatosFragment extends Fragment {
         valueEventListenerContatos = usuariosRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                lsUsuarios.clear();
 
                 for (DataSnapshot d : dataSnapshot.getChildren()){
                     Usuario usuario = d.getValue(Usuario.class);

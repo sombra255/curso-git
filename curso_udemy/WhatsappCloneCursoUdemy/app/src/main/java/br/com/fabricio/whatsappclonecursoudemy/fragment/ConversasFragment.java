@@ -76,9 +76,16 @@ public class ConversasFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Conversa conversaSelecionada = lsConversa.get(position);
-                Intent i = new Intent(getActivity(), ChatActivity.class);
-                i.putExtra("chatContato", conversaSelecionada.getUsuarioExibicao());
-                startActivity(i);
+
+                if(conversaSelecionada.getIsGroup().equals("true")){
+                    Intent i = new Intent(getActivity(), ChatActivity.class);
+                    i.putExtra("chatGrupo", conversaSelecionada.getGrupo());
+                    startActivity(i);
+                }else {
+                    Intent i = new Intent(getActivity(), ChatActivity.class);
+                    i.putExtra("chatContato", conversaSelecionada.getUsuarioExibicao());
+                    startActivity(i);
+                }
             }
 
             @Override
@@ -101,10 +108,31 @@ public class ConversasFragment extends Fragment {
         return view;
     }
 
+    public void pesquisarConversas(String texto){
+
+        List<Conversa>lsConversasBusca = new ArrayList<>();
+        for(Conversa c : lsConversa){
+            String nome = c.getUsuarioExibicao().getNome().toLowerCase();
+            String mensagem = c.getUltimaMensagem();
+
+            if(nome.contains(texto) || mensagem.contains(texto)){
+                lsConversasBusca.add(c);
+            }
+        }
+
+        adapter = new ConversasAdapter(lsConversasBusca, getActivity());
+        recyclerViewConversas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void recarregarConversas(){
+        adapter = new ConversasAdapter(lsConversa, getActivity());
+        recyclerViewConversas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
 
     public void recuperarConversas(){
-
-        lsConversa.clear();
 
         valueEventListenerConversas = conversasRef.addChildEventListener(new ChildEventListener() {
             @Override

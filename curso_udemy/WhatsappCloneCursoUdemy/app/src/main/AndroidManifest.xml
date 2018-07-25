@@ -32,7 +32,25 @@
             android:name=".activity.ChatActivity"
             android:label="@string/title_activity_chat"
             android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/MyAppTheme"></activity>
+            android:theme="@style/MyAppTheme" />
+        <activity
+            android:name=".activity.GrupoActivity"
+            android:label="@string/title_activity_grupo"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/MyAppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.fabricio.whatsappclonecursoudemy.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.CadastroGrupoActivity"
+            android:label="@string/title_activity_cadastro_grupo"
+            android:parentActivityName=".activity.GrupoActivity"
+            android:theme="@style/MyAppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.fabricio.whatsappclonecursoudemy.activity.GrupoActivity" />
+        </activity>
     </application>
 
 </manifest>
