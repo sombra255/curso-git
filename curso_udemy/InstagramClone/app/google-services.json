@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "520868394812",
+    "firebase_url": "https://curso-udemy-instagram-clone.firebaseio.com",
+    "project_id": "curso-udemy-instagram-clone",
+    "storage_bucket": "curso-udemy-instagram-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520868394812:android:8a2e0229db7d24b7",
+        "android_client_info": {
+          "package_name": "br.com.fabricio.instagramclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520868394812-ebee3492dam3904kjmfn1gui508nbil6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fabricio.instagramclone",
+            "certificate_hash": "6ef5c5debbd6077a33385f4822631753ef0def42"
+          }
+        },
+        {
+          "client_id": "520868394812-u8f2c0gs9t41d8bd0naek5817aa9iu7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1H_-I8zertJEGLHP8gubE1pHteCZva2o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520868394812-u8f2c0gs9t41d8bd0naek5817aa9iu7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

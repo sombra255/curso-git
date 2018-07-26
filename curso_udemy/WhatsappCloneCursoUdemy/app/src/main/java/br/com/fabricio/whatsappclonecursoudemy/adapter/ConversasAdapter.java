@@ -39,6 +39,7 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Conversa conversa = lsConversas.get(position);
         Usuario usuario = conversa.getUsuarioExibicao();
+
         holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
         holder.nome.setText(usuario.getNome());
 
