@@ -40,6 +40,12 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Conversa conversa = lsConversas.get(position);
         Usuario usuario = conversa.getUsuarioExibicao();
+<<<<<<< HEAD
+=======
+
+        holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
+        holder.nome.setText(usuario.getNome());
+>>>>>>> a0ebb776b25596f1623390e98a5554b2b5f7f787
 
         if(conversa.getIsGroup().equals("true")){
             Grupo grupo = conversa.getGrupo();
