@@ -28,11 +28,19 @@
         <activity
             android:name=".activity.ConfiguracoesActivity"
             android:parentActivityName=".activity.MainActivity" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="br.com.fabricio.whatsappclonecursoudemy.activity.MainActivity" />
         <activity
             android:name=".activity.ChatActivity"
             android:label="@string/title_activity_chat"
             android:parentActivityName=".activity.MainActivity"
             android:theme="@style/MyAppTheme" />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="br.com.fabricio.whatsappclonecursoudemy.activity.MainActivity" />
+
         <activity
             android:name=".activity.GrupoActivity"
             android:label="@string/title_activity_grupo"

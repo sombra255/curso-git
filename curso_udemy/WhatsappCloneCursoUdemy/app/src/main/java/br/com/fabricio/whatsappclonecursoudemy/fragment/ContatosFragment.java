@@ -25,8 +25,10 @@ import br.com.fabricio.whatsappclonecursoudemy.R;
 import br.com.fabricio.whatsappclonecursoudemy.activity.ChatActivity;
 import br.com.fabricio.whatsappclonecursoudemy.activity.GrupoActivity;
 import br.com.fabricio.whatsappclonecursoudemy.adapter.ContatosAdapter;
+import br.com.fabricio.whatsappclonecursoudemy.adapter.ConversasAdapter;
 import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
 import br.com.fabricio.whatsappclonecursoudemy.helper.UsuarioFirebase;
+import br.com.fabricio.whatsappclonecursoudemy.model.Conversa;
 import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import br.com.fabricio.whatsappclonecursoudemy.utils.RecyclerItemClickListener;
 
@@ -41,6 +43,9 @@ public class ContatosFragment extends Fragment {
     private DatabaseReference usuariosRef;
     private ValueEventListener valueEventListenerContatos;
     private FirebaseUser usuarioAtual;
+
+    public ContatosFragment() {
+    }
 
     @Override
     public void onStart() {
@@ -60,8 +65,8 @@ public class ContatosFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_contatos, container, false);
 
-        usuarioAtual = UsuarioFirebase.getFirebaseUser();
         recyclerViewContatos = view.findViewById(R.id.recyclerContatos);
+        usuarioAtual = UsuarioFirebase.getFirebaseUser();
         usuariosRef = FirebaseHelper.getFirebaseDatabase().child("usuarios");
 
 
@@ -75,15 +80,18 @@ public class ContatosFragment extends Fragment {
         recyclerViewContatos.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerViewContatos, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Usuario usuarioSelecionado = lsUsuarios.get(position);
+
+
+                List<Usuario> lsUsuariosSelecionados = adapter.getContatos();
+                Usuario usuarioSelecionado = lsUsuariosSelecionados.get(position);
 
                 boolean cabecalho = usuarioSelecionado.getEmail().isEmpty();
 
-                if(cabecalho){
+                if (cabecalho) {
                     Intent i = new Intent(getActivity(), GrupoActivity.class);
                     startActivity(i);
 
-                }else {
+                } else {
                     Intent i = new Intent(getActivity(), ChatActivity.class);
                     i.putExtra("chatContato", usuarioSelecionado);
                     startActivity(i);
@@ -110,16 +118,39 @@ public class ContatosFragment extends Fragment {
         return view;
     }
 
-    public void recuperarContatos(){
+    public void pesquisarContatos(String texto) {
+
+        List<Usuario> lsUsuariosBusca = new ArrayList<>();
+        for (Usuario u : lsUsuariosBusca) {
+
+            String nome = u.getNome().toLowerCase();
+            String email = u.getEmail().toLowerCase();
+
+            if (nome.contains(texto) || email.contains(texto)) {
+                lsUsuariosBusca.add(u);
+            }
+        }
+
+        adapter = new ContatosAdapter(lsUsuariosBusca, getActivity());
+        recyclerViewContatos.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void recarregarUsuarios() {
+        adapter = new ContatosAdapter(lsUsuarios, getActivity());
+        recyclerViewContatos.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void recuperarContatos() {
         valueEventListenerContatos = usuariosRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot d : dataSnapshot.getChildren()){
+                for (DataSnapshot d : dataSnapshot.getChildren()) {
                     Usuario usuario = d.getValue(Usuario.class);
 
-                    if(!usuarioAtual.getEmail().equals(usuario.getEmail())){
-
+                    if (!usuarioAtual.getEmail().equals(usuario.getEmail())) {
                         lsUsuarios.add(usuario);
                     }
                 }

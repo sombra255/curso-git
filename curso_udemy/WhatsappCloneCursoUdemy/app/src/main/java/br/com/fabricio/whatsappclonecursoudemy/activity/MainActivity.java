@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 .add("Contatos", ContatosFragment.class)
                 .create());
 
-        ViewPager viewPager = findViewById(R.id.viewPager);
+        final ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
 
         SmartTabLayout viewPagerTab = findViewById(R.id.smartTabLayout);
@@ -70,11 +70,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
 
-                ConversasFragment fragment = (ConversasFragment) adapter.getPage(0);
-                if(newText != null && !newText.isEmpty()){
-                    fragment.pesquisarConversas(newText);
-                }
+                switch (viewPager.getCurrentItem()){
+                    case 0:
+                        ConversasFragment fragmentConversas = (ConversasFragment) adapter.getPage(0);
+                        if(newText != null && !newText.isEmpty()){
+                            fragmentConversas.pesquisarConversas(newText);
+                        }else {
+                            fragmentConversas.recarregarConversas();
+                        }
+                        break;
+                    case 1:
+                        ContatosFragment fragmentContatos = (ContatosFragment) adapter.getPage(1);
+                        if(newText != null && !newText.isEmpty()){
+                            fragmentContatos.pesquisarContatos(newText);
+                        }else {
+                            fragmentContatos.recarregarUsuarios();
+                        }
+                        break;
 
+                }
                 return true;
             }
         });

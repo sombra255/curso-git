@@ -21,12 +21,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyViewHolder> {
 
-    private List<Conversa> lsConversas;
+    private List<Conversa> conversasList;
     private Context context;
 
     public ConversasAdapter(List<Conversa> lsConversas, Context context) {
-        this.lsConversas = lsConversas;
+        this.conversasList = lsConversas;
         this.context = context;
+    }
+
+    public List<Conversa> getConversas(){
+        return this.conversasList;
     }
 
     @NonNull
@@ -38,14 +42,14 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Conversa conversa = lsConversas.get(position);
-        Usuario usuario = conversa.getUsuarioExibicao();
-<<<<<<< HEAD
-=======
-
+        Conversa conversa = conversasList.get(position);
         holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
-        holder.nome.setText(usuario.getNome());
->>>>>>> a0ebb776b25596f1623390e98a5554b2b5f7f787
+//<<<<<<< HEAD
+//=======
+//
+//        holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
+//        holder.nome.setText(usuario.getNome());
+//>>>>>>> a0ebb776b25596f1623390e98a5554b2b5f7f787
 
         if(conversa.getIsGroup().equals("true")){
             Grupo grupo = conversa.getGrupo();
@@ -59,21 +63,23 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.MyVi
             }
 
         }else {
-            holder.ultimaMensagem.setText(conversa.getUltimaMensagem());
-            holder.nome.setText(usuario.getNome());
+            Usuario usuario = conversa.getUsuarioExibicao();
+            if(usuario != null){
+                holder.nome.setText(usuario.getNome());
 
-            if(usuario.getFoto() != null){
-                Uri uri = Uri.parse(usuario.getFoto());
-                Glide.with(context).load(uri).into(holder.imagem);
-            }else {
-                holder.imagem.setImageResource(R.drawable.padrao);
+                if(usuario.getFoto() != null){
+                    Uri uri = Uri.parse(usuario.getFoto());
+                    Glide.with(context).load(uri).into(holder.imagem);
+                }else {
+                    holder.imagem.setImageResource(R.drawable.padrao);
+                }
             }
         }
     }
 
     @Override
     public int getItemCount() {
-        return lsConversas.size();
+        return conversasList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

@@ -89,10 +89,12 @@ public class GrupoActivity extends AppCompatActivity {
                 //remover usuario selecionado
                 lsMembros.remove(usuarioSelecionado);
                 adapterContatos.notifyDataSetChanged();
-                atualizarMembrosToolbar();
 
                 //adiciona o usuario na nova lista
                 lsMembrosSelecionados.add(usuarioSelecionado);
+                adapterContatosSelecionados.notifyDataSetChanged();
+
+                atualizarMembrosToolbar();
             }
 
             @Override
@@ -119,6 +121,7 @@ public class GrupoActivity extends AppCompatActivity {
                 //remove lista membros selecionados
                 Usuario usuarioSelecionado = lsMembrosSelecionados.get(position);
                 lsMembrosSelecionados.remove(usuarioSelecionado);
+                adapterContatosSelecionados.notifyDataSetChanged();
 
                 //adiciona lista de membros
                 lsMembros.add(usuarioSelecionado);

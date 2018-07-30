@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 import br.com.fabricio.whatsappclonecursoudemy.R;
+import br.com.fabricio.whatsappclonecursoudemy.model.Conversa;
 import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -26,6 +27,10 @@ public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyView
     public ContatosAdapter(List<Usuario>listaUsuario, Context ctx) {
         this.lsUsuarios = listaUsuario;
         this.context = ctx;
+    }
+
+    public List<Usuario> getContatos(){
+        return this.lsUsuarios;
     }
 
     @NonNull

@@ -86,9 +86,14 @@ public class CadastroGrupoActivity extends AppCompatActivity {
                     lsMembrosSelecionados.add(UsuarioFirebase.getUsuarioLogado());
                     grupo.setLsMembros(lsMembrosSelecionados);
                     grupo.salvar();
+
+                    Intent i = new Intent(CadastroGrupoActivity.this, ChatActivity.class);
+                    i.putExtra("chatGrupo", grupo);
+                    startActivity(i);
+
                 }
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

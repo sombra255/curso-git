@@ -15,8 +15,6 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,6 @@ import br.com.fabricio.whatsappclonecursoudemy.adapter.ConversasAdapter;
 import br.com.fabricio.whatsappclonecursoudemy.helper.FirebaseHelper;
 import br.com.fabricio.whatsappclonecursoudemy.helper.UsuarioFirebase;
 import br.com.fabricio.whatsappclonecursoudemy.model.Conversa;
-import br.com.fabricio.whatsappclonecursoudemy.model.Usuario;
 import br.com.fabricio.whatsappclonecursoudemy.utils.RecyclerItemClickListener;
 
 /**
@@ -41,6 +38,9 @@ public class ConversasFragment extends Fragment {
     private DatabaseReference databaseReference;
     private DatabaseReference conversasRef;
     private ChildEventListener valueEventListenerConversas;
+
+    public ConversasFragment() {
+    }
 
     @Override
     public void onStart() {
@@ -75,7 +75,9 @@ public class ConversasFragment extends Fragment {
                 getActivity(), recyclerViewConversas, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Conversa conversaSelecionada = lsConversa.get(position);
+
+                List<Conversa>lsConversaAtualizada = adapter.getConversas();
+                Conversa conversaSelecionada = lsConversaAtualizada.get(position);
 
                 if(conversaSelecionada.getIsGroup().equals("true")){
                     Intent i = new Intent(getActivity(), ChatActivity.class);
@@ -112,11 +114,21 @@ public class ConversasFragment extends Fragment {
 
         List<Conversa>lsConversasBusca = new ArrayList<>();
         for(Conversa c : lsConversa){
-            String nome = c.getUsuarioExibicao().getNome().toLowerCase();
-            String mensagem = c.getUltimaMensagem();
 
-            if(nome.contains(texto) || mensagem.contains(texto)){
-                lsConversasBusca.add(c);
+            if(c.getUsuarioExibicao() != null){
+                String nome = c.getUsuarioExibicao().getNome().toLowerCase();
+                String mensagem = c.getUltimaMensagem();
+
+                if(nome.contains(texto) || mensagem.contains(texto)){
+                    lsConversasBusca.add(c);
+                }
+            }else {
+                String nome = c.getGrupo().getNome().toLowerCase();
+                String mensagem = c.getUltimaMensagem();
+
+                if(nome.contains(texto) || mensagem.contains(texto)){
+                    lsConversasBusca.add(c);
+                }
             }
         }
 
