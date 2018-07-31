@@ -50,6 +50,8 @@ public class ContatosFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        lsUsuarios.clear();
+        criarCabecalho();
         recuperarContatos();
     }
 
@@ -109,13 +111,18 @@ public class ContatosFragment extends Fragment {
             }
         }));
 
+        criarCabecalho();
+
+
+        return view;
+    }
+
+    private void criarCabecalho() {
         //cria um usuario sem email que será o cabecalho, a campo email vazio é oq define o campo como cabecalho
         Usuario usuarioGrupo = new Usuario();
         usuarioGrupo.setNome("Novo Grupo");
         usuarioGrupo.setEmail("");
         lsUsuarios.add(usuarioGrupo);
-
-        return view;
     }
 
     public void pesquisarContatos(String texto) {

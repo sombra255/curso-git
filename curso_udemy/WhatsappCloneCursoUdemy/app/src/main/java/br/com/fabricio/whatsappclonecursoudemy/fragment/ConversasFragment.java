@@ -45,6 +45,7 @@ public class ConversasFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        lsConversa.clear();
         recuperarConversas();
     }
 
