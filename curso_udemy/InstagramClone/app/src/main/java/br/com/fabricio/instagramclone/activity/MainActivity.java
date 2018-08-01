@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragment = getSupportFragmentManager();
         FragmentTransaction transaction = fragment.beginTransaction();
-        transaction.replace(R.id.viewPage, new FeedFragment()).commit();
+        transaction.replace(R.id.viewPager, new FeedFragment()).commit();
     }
 
     private void configuraBottomNavigation() {
@@ -73,16 +73,16 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()){
                     case R.id.ic_home:
-                        transaction.replace(R.id.viewPage, new FeedFragment()).commit();
+                        transaction.replace(R.id.viewPager, new FeedFragment()).commit();
                         return true;
                     case R.id.ic_pesquisa:
-                        transaction.replace(R.id.viewPage, new PesquisaFragment()).commit();
+                        transaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
                         return true;
                     case R.id.ic_postagem:
-                        transaction.replace(R.id.viewPage, new PostagemFragment()).commit();
+                        transaction.replace(R.id.viewPager, new PostagemFragment()).commit();
                         return true;
                     case R.id.ic_perfil:
-                        transaction.replace(R.id.viewPage, new PerfilFragment()).commit();
+                        transaction.replace(R.id.viewPager, new PerfilFragment()).commit();
                         return true;
                 }
                 return false;
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 break;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     private void deslogarUsuario() {
