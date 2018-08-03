@@ -6,14 +6,14 @@
     tools:context="br.com.fabricio.instagramclone.fragment.PerfilFragment">
 
    <de.hdodenhof.circleimageview.CircleImageView
-       android:id="@+id/circleImageView2"
+       android:id="@+id/imageViewFotoPerfil"
        android:layout_width="60dp"
        android:layout_height="60dp"
        android:layout_marginBottom="8dp"
        android:layout_marginEnd="8dp"
-       android:layout_marginStart="16dp"
-       android:layout_marginRight="8dp"
        android:layout_marginLeft="16dp"
+       android:layout_marginRight="8dp"
+       android:layout_marginStart="16dp"
        android:layout_marginTop="16dp"
        android:src="@drawable/avatar"
        app:layout_constraintBottom_toTopOf="@+id/guideline3"
@@ -55,7 +55,7 @@
        android:textColor="@android:color/darker_gray"
        android:textSize="12sp"
        app:layout_constraintStart_toStartOf="@+id/guideline"
-       app:layout_constraintTop_toBottomOf="@+id/textView4" />
+       app:layout_constraintTop_toBottomOf="@+id/txtPublicacoes" />
 
    <TextView
        android:id="@+id/textView2"
@@ -70,7 +70,7 @@
        app:layout_constraintEnd_toStartOf="@+id/textView3"
        app:layout_constraintHorizontal_bias="0.627"
        app:layout_constraintStart_toEndOf="@+id/textView"
-       app:layout_constraintTop_toBottomOf="@+id/textView6" />
+       app:layout_constraintTop_toBottomOf="@+id/txtSeguidores" />
 
    <TextView
        android:id="@+id/textView3"
@@ -81,10 +81,10 @@
        android:textColor="@android:color/darker_gray"
        android:textSize="12sp"
        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-       app:layout_constraintTop_toBottomOf="@+id/textView5" />
+       app:layout_constraintTop_toBottomOf="@+id/txtSeguindo" />
 
    <TextView
-       android:id="@+id/textView4"
+       android:id="@+id/txtPublicacoes"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginEnd="8dp"
@@ -99,7 +99,7 @@
        app:layout_constraintTop_toTopOf="parent" />
 
    <TextView
-       android:id="@+id/textView5"
+       android:id="@+id/txtSeguindo"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginEnd="8dp"
@@ -114,7 +114,7 @@
        app:layout_constraintTop_toTopOf="parent" />
 
    <TextView
-       android:id="@+id/textView6"
+       android:id="@+id/txtSeguidores"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginEnd="8dp"
@@ -129,7 +129,7 @@
        app:layout_constraintTop_toTopOf="parent" />
 
    <Button
-       android:id="@+id/button"
+       android:id="@+id/btnEditarPerfil"
        android:layout_width="0dp"
        android:layout_height="21dp"
        android:layout_marginEnd="8dp"

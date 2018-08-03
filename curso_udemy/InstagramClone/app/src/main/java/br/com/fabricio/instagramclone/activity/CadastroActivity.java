@@ -80,11 +80,17 @@ public class CadastroActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            progressBarCadastro.setVisibility(View.GONE);
-                            usuario.salvar();
-                            Toast.makeText(CadastroActivity.this, "Usuario Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            finish();
+                            try{
+                                progressBarCadastro.setVisibility(View.GONE);
+                                String idUsuario = task.getResult().getUser().getUid();
+                                usuario.setId(idUsuario);
+                                usuario.salvar();
+                                Toast.makeText(CadastroActivity.this, "Usuario Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                finish();
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
                         }else {
                             progressBarCadastro.setVisibility(View.GONE);
                             String erroExcecao = "";
