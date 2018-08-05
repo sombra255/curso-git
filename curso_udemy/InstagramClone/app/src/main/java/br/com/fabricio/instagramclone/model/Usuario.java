@@ -4,6 +4,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import br.com.fabricio.instagramclone.helper.FirebaseHelper;
 
 /**
@@ -26,6 +29,24 @@ public class Usuario {
         DatabaseReference usuarioRef = database.child("usuarios");
         usuarioRef.child(this.getId())
                 .setValue(this);
+    }
+
+    public void atualizar() {
+        DatabaseReference firebaseRef = FirebaseHelper.getDatabaseReference();
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios")
+                .child(getId());
+
+        usuarioRef.updateChildren(converteParaMap());
+    }
+
+    public Map<String, Object> converteParaMap(){
+        HashMap<String, Object> usuarioMap = new HashMap<>();
+        usuarioMap.put("email", getEmail());
+        usuarioMap.put("nome", getNome());
+        usuarioMap.put("id", getId());
+        usuarioMap.put("caminhoFoto", getCaminhoFoto());
+
+        return usuarioMap;
     }
 
     public String getId() {

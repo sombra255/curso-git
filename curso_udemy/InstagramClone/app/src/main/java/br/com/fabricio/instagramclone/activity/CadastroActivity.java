@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import br.com.fabricio.instagramclone.R;
 import br.com.fabricio.instagramclone.helper.FirebaseHelper;
+import br.com.fabricio.instagramclone.helper.UsuarioFirebase;
 import br.com.fabricio.instagramclone.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -85,6 +86,7 @@ public class CadastroActivity extends AppCompatActivity {
                                 String idUsuario = task.getResult().getUser().getUid();
                                 usuario.setId(idUsuario);
                                 usuario.salvar();
+                                UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
                                 Toast.makeText(CadastroActivity.this, "Usuario Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 finish();
