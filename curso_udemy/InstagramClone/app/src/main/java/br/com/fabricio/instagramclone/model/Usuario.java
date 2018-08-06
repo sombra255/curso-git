@@ -17,6 +17,7 @@ public class Usuario {
 
     private String id;
     private String nome;
+    private String nomeMaiusculo;
     private String email;
     private String senha;
     private String caminhoFoto;
@@ -43,6 +44,7 @@ public class Usuario {
         HashMap<String, Object> usuarioMap = new HashMap<>();
         usuarioMap.put("email", getEmail());
         usuarioMap.put("nome", getNome());
+        usuarioMap.put("nomeMaiusculo", getNome().toUpperCase());
         usuarioMap.put("id", getId());
         usuarioMap.put("caminhoFoto", getCaminhoFoto());
 
@@ -88,5 +90,13 @@ public class Usuario {
 
     public void setCaminhoFoto(String caminhoFoto) {
         this.caminhoFoto = caminhoFoto;
+    }
+
+    public String getNomeMaiusculo() {
+        return nomeMaiusculo;
+    }
+
+    public void setNomeMaiusculo(String nomeMaiusculo) {
+        this.nomeMaiusculo = nomeMaiusculo;
     }
 }
