@@ -4,6 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import br.com.fabricio.instagramclone.helper.FirebaseHelper;
  * Created by Fabricio on 01/08/2018.
  */
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private String id;
     private String nome;
@@ -21,6 +22,9 @@ public class Usuario {
     private String email;
     private String senha;
     private String caminhoFoto;
+    private int seguidores = 0;
+    private int seguindo = 0;
+    private int postagens = 0;
 
     public Usuario() {
     }
@@ -47,6 +51,9 @@ public class Usuario {
         usuarioMap.put("nomeMaiusculo", getNome().toUpperCase());
         usuarioMap.put("id", getId());
         usuarioMap.put("caminhoFoto", getCaminhoFoto());
+        usuarioMap.put("seguidores", getSeguidores());
+        usuarioMap.put("seguindo", getSeguindo());
+        usuarioMap.put("postagens", getPostagens());
 
         return usuarioMap;
     }
@@ -98,5 +105,29 @@ public class Usuario {
 
     public void setNomeMaiusculo(String nomeMaiusculo) {
         this.nomeMaiusculo = nomeMaiusculo;
+    }
+
+    public int getSeguidores() {
+        return seguidores;
+    }
+
+    public void setSeguidores(int seguidores) {
+        this.seguidores = seguidores;
+    }
+
+    public int getSeguindo() {
+        return seguindo;
+    }
+
+    public void setSeguindo(int seguindo) {
+        this.seguindo = seguindo;
+    }
+
+    public int getPostagens() {
+        return postagens;
+    }
+
+    public void setPostagens(int postagens) {
+        this.postagens = postagens;
     }
 }

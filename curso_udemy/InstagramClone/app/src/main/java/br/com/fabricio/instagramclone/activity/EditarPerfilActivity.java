@@ -11,14 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -158,7 +156,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         circleImageView = findViewById(R.id.imageViewEditarPerfil);
         edtEmail = findViewById(R.id.editar_perfil_edt_email);
         edtNome = findViewById(R.id.editar_perfil_edt_nome);
-        btnSalvar = findViewById(R.id.btnEditarPerfil);
+        btnSalvar = findViewById(R.id.editar_perfil_btn_editar);
         txtAlterarFoto = findViewById(R.id.editar_perfil_txt_alterar_foto);
         edtEmail.setFocusable(false);
     }

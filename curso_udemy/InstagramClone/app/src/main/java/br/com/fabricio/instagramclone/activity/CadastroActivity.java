@@ -60,6 +60,7 @@ public class CadastroActivity extends AppCompatActivity {
                     usuario.setNome(textoNome);
                     usuario.setEmail(textoEmail);
                     usuario.setSenha(textoSenha);
+                    usuario.setNomeMaiusculo(textoNome.toUpperCase());
                     cadastrar(usuario);
                 }else {
                     Toast.makeText(CadastroActivity.this, "Campo senha vazio!", Toast.LENGTH_SHORT).show();

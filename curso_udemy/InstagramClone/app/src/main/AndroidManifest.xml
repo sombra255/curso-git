@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.fabricio.instagramclone">
-    
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -24,8 +24,10 @@
         <activity
             android:name=".activity.CadastroActivity"
             android:theme="@style/AppThemeLogin" />
-        <activity android:name=".activity.EditarPerfilActivity"
-            android:parentActivityName=".activity.MainActivity"></activity>
+        <activity
+            android:name=".activity.EditarPerfilActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.PerfilAmigoActivity"></activity>
     </application>
 
 </manifest>
