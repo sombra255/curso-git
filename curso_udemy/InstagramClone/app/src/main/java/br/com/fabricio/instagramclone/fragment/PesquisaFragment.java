@@ -25,6 +25,7 @@ import br.com.fabricio.instagramclone.R;
 import br.com.fabricio.instagramclone.activity.PerfilAmigoActivity;
 import br.com.fabricio.instagramclone.adapter.PesquisaAdapter;
 import br.com.fabricio.instagramclone.helper.FirebaseHelper;
+import br.com.fabricio.instagramclone.helper.UsuarioFirebase;
 import br.com.fabricio.instagramclone.model.Usuario;
 import br.com.fabricio.instagramclone.utils.RecyclerItemClickListener;
 
@@ -38,6 +39,7 @@ public class PesquisaFragment extends Fragment {
     private List<Usuario> lsUsuarios;
     private DatabaseReference usuarioRef;
     private PesquisaAdapter adapter;
+    private Usuario usuarioLogado;
 
 
     public PesquisaFragment() {
@@ -55,6 +57,7 @@ public class PesquisaFragment extends Fragment {
         lsUsuarios = new ArrayList<>();
         usuarioRef = FirebaseHelper.getDatabaseReference()
                 .child("usuarios");
+        usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -125,7 +128,12 @@ public class PesquisaFragment extends Fragment {
                     lsUsuarios.clear();
 
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        lsUsuarios.add(ds.getValue(Usuario.class));
+                        Usuario usuario = ds.getValue(Usuario.class);
+
+                        if(usuarioLogado.getId().equals(usuario.getId()))
+                            continue;
+
+                        lsUsuarios.add(usuario);
                     }
 
                     adapter.notifyDataSetChanged();

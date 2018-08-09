@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.fabricio.instagramclone">
 
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +32,8 @@
         <activity
             android:name=".activity.EditarPerfilActivity"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.PerfilAmigoActivity"></activity>
+        <activity android:name=".activity.PerfilAmigoActivity" />
+        <activity android:name=".activity.FiltroActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package br.com.fabricio.instagramclone.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -27,6 +28,7 @@ import br.com.fabricio.instagramclone.R;
 import br.com.fabricio.instagramclone.helper.FirebaseHelper;
 import br.com.fabricio.instagramclone.helper.UsuarioFirebase;
 import br.com.fabricio.instagramclone.model.Usuario;
+import br.com.fabricio.instagramclone.utils.Permissao;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditarPerfilActivity extends AppCompatActivity {
@@ -39,11 +41,17 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private FirebaseUser usuarioPerfil;
     private Usuario usuarioLogado;
     private StorageReference storageRef;
+    private String[] arrayPermissoes = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
+
+        Permissao.validarPermissoes(arrayPermissoes, EditarPerfilActivity.this, 1);
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Editar perfil");
