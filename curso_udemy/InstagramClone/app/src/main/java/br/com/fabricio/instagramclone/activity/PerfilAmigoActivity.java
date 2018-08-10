@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -13,12 +14,21 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
+import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import br.com.fabricio.instagramclone.R;
+import br.com.fabricio.instagramclone.adapter.GridAdapter;
 import br.com.fabricio.instagramclone.helper.FirebaseHelper;
 import br.com.fabricio.instagramclone.helper.UsuarioFirebase;
+import br.com.fabricio.instagramclone.model.Postagem;
 import br.com.fabricio.instagramclone.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -26,6 +36,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
     private Usuario usuarioSelecionado;
     private Usuario usuarioLogado;
     private Button btnEditarPerfil; //vou sobreever o mesmo botao da tela de editar
+    private GridView gridView;
     private CircleImageView imageView;
     private DatabaseReference firebaseRef;
     private DatabaseReference usuariosRef;
@@ -34,6 +45,8 @@ public class PerfilAmigoActivity extends AppCompatActivity {
     private DatabaseReference seguidoresRef;
     private ValueEventListener eventListenerPeriflAmigo;
     private TextView txtPublicacoes, txtSeguidores, txtSeguindo;
+    private DatabaseReference postagensUsuarioRef;
+    private GridAdapter adapterGrid;
 
     @Override
     protected void onStart() {
@@ -56,6 +69,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
         firebaseRef = FirebaseHelper.getDatabaseReference();
         usuariosRef = firebaseRef.child("usuarios");
         seguidoresRef = firebaseRef.child("seguidores");
+        postagensUsuarioRef = firebaseRef.child("postagens");
         usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
         inicializarComponentes();
@@ -72,6 +86,11 @@ public class PerfilAmigoActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             usuarioSelecionado = (Usuario) bundle.getSerializable("usuarioSelecionado");
+
+            postagensUsuarioRef = FirebaseHelper.getDatabaseReference()
+                    .child("postagens")
+                    .child(usuarioSelecionado.getId());
+
             getSupportActionBar().setTitle(usuarioSelecionado.getNome());
 
             if(usuarioSelecionado.getCaminhoFoto() != null){
@@ -81,6 +100,8 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                 imageView.setImageResource(R.drawable.avatar);
             }
         }
+        inicializarImageLoader();
+        carregarFotosPostagens();
     }
 
     private void inicializarComponentes() {
@@ -89,6 +110,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
         txtPublicacoes = findViewById(R.id.txtPublicacoes);
         txtSeguidores = findViewById(R.id.txtSeguidores);
         txtSeguindo = findViewById(R.id.txtSeguindo);
+        gridView = findViewById(R.id.gridViewPerfil);
         btnEditarPerfil.setText("Carregando");
     }
 
@@ -153,6 +175,49 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void inicializarImageLoader(){
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+                .memoryCache(new LruMemoryCache(2 * 1024 * 1024))
+                .memoryCacheSize(2 * 1024 * 1024)
+                .diskCacheSize(50 * 1024 * 1024)
+                .diskCacheFileCount(100)
+                .diskCacheFileNameGenerator(new HashCodeFileNameGenerator())
+                .build();
+        ImageLoader.getInstance().init(config);
+    }
+
+    private void carregarFotosPostagens(){
+        postagensUsuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                int tamanhoGrid = getResources().getDisplayMetrics().widthPixels;
+                int tamanhoImagem = tamanhoGrid / 3;
+                gridView.setColumnWidth(tamanhoImagem);
+
+                List<String> lsUrlFotos = new ArrayList<>();
+
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    Postagem postagem = ds.getValue(Postagem.class);
+                    lsUrlFotos.add(postagem.getCaminhoFoto());
+                }
+
+                int qntPostagens = lsUrlFotos.size();
+                txtPublicacoes.setText(String.valueOf(qntPostagens));
+
+                adapterGrid = new GridAdapter(getApplicationContext(), R.layout.list_item_postagem, lsUrlFotos);
+                gridView.setAdapter(adapterGrid);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     private void recuperarDadosUsuariosLogado(){
