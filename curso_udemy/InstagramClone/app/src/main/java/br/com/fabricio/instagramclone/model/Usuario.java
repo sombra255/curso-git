@@ -36,6 +36,14 @@ public class Usuario implements Serializable {
                 .setValue(this);
     }
 
+    public void atualizarQuantidadePostagens() {
+        DatabaseReference firebaseRef = FirebaseHelper.getDatabaseReference();
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios")
+                .child(getId());
+
+        usuarioRef.updateChildren(mapQuantidadePostagens());
+    }
+
     public void atualizar() {
         DatabaseReference firebaseRef = FirebaseHelper.getDatabaseReference();
         DatabaseReference usuarioRef = firebaseRef.child("usuarios")
@@ -53,6 +61,13 @@ public class Usuario implements Serializable {
         usuarioMap.put("caminhoFoto", getCaminhoFoto());
         usuarioMap.put("seguidores", getSeguidores());
         usuarioMap.put("seguindo", getSeguindo());
+        usuarioMap.put("postagens", getPostagens());
+
+        return usuarioMap;
+    }
+
+    public Map<String, Object> mapQuantidadePostagens(){
+        HashMap<String, Object> usuarioMap = new HashMap<>();
         usuarioMap.put("postagens", getPostagens());
 
         return usuarioMap;
