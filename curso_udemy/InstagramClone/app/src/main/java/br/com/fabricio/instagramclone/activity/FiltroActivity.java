@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -60,8 +61,9 @@ public class FiltroActivity extends AppCompatActivity {
     private Usuario usuarioLogado;
     private DatabaseReference usuariosRef;
     private DatabaseReference usuarioLogadoRef;
-    private ProgressBar progressBarFiltro;
-    private boolean estaCarregado;
+    private AlertDialog dialog;
+//    private ProgressBar progressBarFiltro;
+//    private boolean estaCarregado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +71,9 @@ public class FiltroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_filtro);
 
         usuariosRef = FirebaseHelper.getDatabaseReference().child("usuarios");
+        usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
         recuperarDadosUsuarioLogado();
-//        usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
+
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Filtros");
@@ -122,13 +125,15 @@ public class FiltroActivity extends AppCompatActivity {
     }
 
     private void recuperarDadosUsuarioLogado(){
-        carregando(true);
+//        carregando(true);
+        abrirDialogCarregamento("Carregando dados, aguarde!");
         usuarioLogadoRef = usuariosRef.child(usuarioLogado.getId());
         usuarioLogadoRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 usuarioLogado = dataSnapshot.getValue(Usuario.class);
-                carregando(false);
+//                carregando(false);
+                dialog.cancel();
             }
 
             @Override
@@ -138,16 +143,26 @@ public class FiltroActivity extends AppCompatActivity {
         });
     }
 
-    private void carregando(boolean estado){
-        if(estado){
-            estaCarregado = true;
-            progressBarFiltro.setVisibility(View.VISIBLE);
-        }else{
-            estaCarregado = false;
-            progressBarFiltro.setVisibility(View.GONE);
-        }
+    private void abrirDialogCarregamento(String titulo){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(titulo);
+        alert.setCancelable(false);
+        alert.setView(R.layout.carregamento);
+        dialog = alert.create();
+        dialog.show();
 
     }
+
+
+//    private void carregando(boolean estado){
+//        if(estado){
+//            estaCarregado = true;
+//            progressBarFiltro.setVisibility(View.VISIBLE);
+//        }else{
+//            estaCarregado = false;
+//            progressBarFiltro.setVisibility(View.GONE);
+//        }
+//    }
 
     private void recuperarFiltros() {
         ThumbnailsManager.clearThumbs();
@@ -177,7 +192,7 @@ public class FiltroActivity extends AppCompatActivity {
         fotoEscolhida = findViewById(R.id.filtroFotoEscolhida);
         txtDescricao = findViewById(R.id.filtro_txt_descricao);
         recyclerViewFiltros = findViewById(R.id.recyclerFiltros);
-        progressBarFiltro = findViewById(R.id.progressBarFiltro);
+//        progressBarFiltro = findViewById(R.id.progressBarFiltro);
 
     }
 
@@ -199,10 +214,11 @@ public class FiltroActivity extends AppCompatActivity {
 
     private void publicarPostagem() {
 
-        if(estaCarregado){
-            Toast.makeText(getApplicationContext(), "Carregando dados, aguarde!", Toast.LENGTH_SHORT).show();
-        } else {
+//        if(estaCarregado){
+//            Toast.makeText(getApplicationContext(), "Carregando dados, aguarde!", Toast.LENGTH_SHORT).show();
+//        } else {
 
+            abrirDialogCarregamento("Salvando postagem");
             final Postagem postagem = new Postagem();
             postagem.setIdUsuario(usuarioLogado.getId());
             postagem.setDescricao(txtDescricao.getText().toString());
@@ -233,6 +249,7 @@ public class FiltroActivity extends AppCompatActivity {
                         usuarioLogado.setPostagens(qntPostagens);
                         usuarioLogado.atualizarQuantidadePostagens();
                         Toast.makeText(FiltroActivity.this, "Sucesso ao salvar imagem", Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
                         finish();
                     } else {
                         Toast.makeText(FiltroActivity.this, "Erro ao salvar imagem", Toast.LENGTH_SHORT).show();
@@ -240,7 +257,7 @@ public class FiltroActivity extends AppCompatActivity {
                     Toast.makeText(FiltroActivity.this, "Sucesso ao salvar postagem", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
+//        }
     }
 
     @Override

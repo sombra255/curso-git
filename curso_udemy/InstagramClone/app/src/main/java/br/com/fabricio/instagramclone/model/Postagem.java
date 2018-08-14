@@ -4,9 +4,11 @@ import android.provider.ContactsContract;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
+
 import br.com.fabricio.instagramclone.helper.FirebaseHelper;
 
-public class Postagem {
+public class Postagem implements Serializable {
 
     private String id;
     private String idUsuario;

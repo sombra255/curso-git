@@ -1,10 +1,12 @@
 package br.com.fabricio.instagramclone.activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -47,6 +49,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
     private TextView txtPublicacoes, txtSeguidores, txtSeguindo;
     private DatabaseReference postagensUsuarioRef;
     private GridAdapter adapterGrid;
+    private List<Postagem> lsPostagens;
 
     @Override
     protected void onStart() {
@@ -100,6 +103,19 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                 imageView.setImageResource(R.drawable.avatar);
             }
         }
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Postagem p = lsPostagens.get(position);
+
+                Intent i = new Intent(getApplicationContext(), VisualizarPostagemActivity.class);
+                i.putExtra("postagem", p);
+                i.putExtra("usuarioSelecionado", usuarioSelecionado);
+                startActivity(i);
+            }
+        });
+
         inicializarImageLoader();
         carregarFotosPostagens();
     }
@@ -189,6 +205,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
     }
 
     private void carregarFotosPostagens(){
+        lsPostagens = new ArrayList<>();
         postagensUsuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -201,6 +218,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
 
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Postagem postagem = ds.getValue(Postagem.class);
+                    lsPostagens.add(postagem);
                     lsUrlFotos.add(postagem.getCaminhoFoto());
                 }
 
