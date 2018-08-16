@@ -47,7 +47,10 @@ dependencies {
     implementation 'info.androidhive:imagefilters:1.0.7'
 
     //lib carregamento de imagens
-    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5';
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    //lib likebutton
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 }
 
 apply plugin: 'com.google.gms.google-services'

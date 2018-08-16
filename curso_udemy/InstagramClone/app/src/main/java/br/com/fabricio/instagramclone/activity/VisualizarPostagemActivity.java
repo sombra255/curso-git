@@ -55,7 +55,7 @@ public class VisualizarPostagemActivity extends AppCompatActivity {
 
     private void inicializarComponentes() {
         txtNomeUsuario = findViewById(R.id.visualiza_postagem_txtNome);
-        txtComentario = findViewById(R.id.visualiza_postagem_txtComentario);
+//        txtComentario = findViewById(R.id.visualiza_postagem_txtComentario);
         txtCurtidas = findViewById(R.id.visualiza_postagem_txtCurtidas);
         txtDescricao = findViewById(R.id.visualiza_postagem_txtDescricao);
         fotoPostagem = findViewById(R.id.visualiza_postagem_fotoPostagem);
