@@ -27,4 +27,7 @@
             android:text="nome teste"/>
 
     </LinearLayout>
+
+    <include layout="@layout/divisor" />
+
 </LinearLayout>

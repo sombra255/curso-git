@@ -60,7 +60,18 @@ public class PerfilFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
         recuperarDadosPerfil();
+
+        if(usuarioLogado != null){
+            if(usuarioLogado.getCaminhoFoto() != null){
+                Uri uri = Uri.parse(usuarioLogado.getCaminhoFoto());
+                Glide.with(getActivity()).load(uri).into(imagemPerfil);
+            }else {
+                imagemPerfil.setImageResource(R.drawable.avatar);
+            }
+
+        }
     }
 
     @Override
@@ -76,24 +87,9 @@ public class PerfilFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         firebaseRef = FirebaseHelper.getDatabaseReference();
-        postagensUsuarioRef = firebaseRef.child("postagens");
         usuariosRef = firebaseRef.child("usuarios");
 
         inicializaComponentes(view);
-
-        if(usuarioLogado != null){
-            if(usuarioLogado.getCaminhoFoto() != null){
-                Uri uri = Uri.parse(usuarioLogado.getCaminhoFoto());
-                Glide.with(getActivity()).load(uri).into(imagemPerfil);
-            }else {
-                imagemPerfil.setImageResource(R.drawable.avatar);
-            }
-
-            postagensUsuarioRef = FirebaseHelper.getDatabaseReference()
-                    .child("postagens")
-                    .child(usuarioLogado.getId());
-
-        }
 
         inicializarImageLoader();
         carregarFotosPostagens();
@@ -132,6 +128,8 @@ public class PerfilFragment extends Fragment {
     }
 
     private void carregarFotosPostagens(){
+
+        postagensUsuarioRef = firebaseRef.child("postagens").child(usuarioLogado.getId());
         postagensUsuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
