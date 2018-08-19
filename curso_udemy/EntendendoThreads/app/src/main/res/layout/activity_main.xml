@@ -6,35 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Switch
-        android:id="@+id/switch1"
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/switchThread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="125dp"
-        android:text="Switch"
-        app:layout_constraintStart_toStartOf="@+id/button"
+        android:text="switch"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciaThread"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnIniciaThread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:text="Iniciar Thread"
+        android:onClick="iniciarThread"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/switchThread" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnPararThread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="22dp"
+        android:onClick="pararExecucao"
         android:text="Parar Thread"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="@+id/btnIniciaThread"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciaThread" />
 </android.support.constraint.ConstraintLayout>
