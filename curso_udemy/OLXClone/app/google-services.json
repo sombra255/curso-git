@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "873407608273",
+    "firebase_url": "https://curso-udemy-olx-clone.firebaseio.com",
+    "project_id": "curso-udemy-olx-clone",
+    "storage_bucket": "curso-udemy-olx-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873407608273:android:c1e8415cb2ddeaa4",
+        "android_client_info": {
+          "package_name": "br.com.fabricio.olxclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873407608273-fhuml7lj237fe6s2gb2e165fpveprlp2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fabricio.olxclone",
+            "certificate_hash": "6ef5c5debbd6077a33385f4822631753ef0def42"
+          }
+        },
+        {
+          "client_id": "873407608273-4as3n2crvtmh6etjkjoletge5t3e87ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB5IFJjEThZV538I5YxPUXsPmk79zvDdk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873407608273-4as3n2crvtmh6etjkjoletge5t3e87ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
