@@ -55,6 +55,10 @@ public class AnunciosActivity extends AppCompatActivity {
                 firebaseAuth.signOut();
                 invalidateOptionsMenu(); //chama o onPrepareOptionsMenu e recarrega os menus corretamente
                 break;
+
+            case R.id.menu_meus_anuncios:
+                startActivity(new Intent(getApplicationContext(), MeusAnunciosActivity.class));
+                break;
         }
         return true;
     }

@@ -34,6 +34,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:15.0.0'
     implementation 'com.google.firebase:firebase-database:15.0.0'
     implementation 'com.firebaseui:firebase-ui-storage:0.6.0'
+
+    //libs para colocar mascara no editText
+    //telefone
+    implementation 'com.github.santalu:mask-edittext:1.0.9'
+    //moeda
+    implementation 'com.github.BlacKCaT27:CurrencyEditText:2.0.2'
+    //lib para criar dialogs
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+    implementation 'com.android.support:cardview-v7:27.1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
