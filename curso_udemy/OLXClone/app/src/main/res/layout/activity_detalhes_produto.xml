@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".activity.DetalhesProdutoActivity">
+
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:fillColor="#FFFFFFFF"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"/>
+
+    <TextView
+        android:id="@+id/detalhe_produtos_txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Título" />
+
+    <TextView
+        android:id="@+id/detalhe_produtos_txtValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:textSize="20sp"
+        android:text="R$ 200,00"
+        android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <TextView
+        android:id="@+id/detalhe_produtos_txtEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:drawableLeft="@drawable/ic_location_on_roxo_24dp"
+        android:text="SP" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <TextView
+        android:id="@+id/detalhe_produtos_txtDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="8dp"
+        android:text="Descrição" />
+
+    <Button
+        android:id="@+id/detalhe_produtos_btnTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/BotaoPadrao"
+        android:layout_gravity="center_horizontal"
+        android:text="Ver Telefone"/>
+
+
+
+</LinearLayout>

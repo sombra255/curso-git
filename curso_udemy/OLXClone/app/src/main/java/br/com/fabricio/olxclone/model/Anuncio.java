@@ -2,12 +2,13 @@ package br.com.fabricio.olxclone.model;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 import java.util.List;
 
 import br.com.fabricio.olxclone.helper.FirebaseHelper;
 import br.com.fabricio.olxclone.helper.UsuarioFirebase;
 
-public class Anuncio {
+public class Anuncio implements Serializable {
 
     private String idAnuncio;
     private String estado;
@@ -45,8 +46,8 @@ public class Anuncio {
 
     public void remover(){
         DatabaseReference anuncioRef = FirebaseHelper.getFirebaseDatabase()
-                .child("meus_anuncios");
-        anuncioRef.child(UsuarioFirebase.getUsuarioFirebase().getUid())
+                .child("meus_anuncios")
+                .child(UsuarioFirebase.getUsuarioFirebase().getUid())
                 .child(getIdAnuncio());
         anuncioRef.removeValue();
         removerAnuncioPublico();
@@ -54,8 +55,8 @@ public class Anuncio {
 
     public void removerAnuncioPublico(){
         DatabaseReference anuncioPublicoRef = FirebaseHelper.getFirebaseDatabase()
-                .child("anuncios");
-        anuncioPublicoRef.child(getEstado())
+                .child("anuncios")
+                .child(getEstado())
                 .child(getCategoria())
                 .child(getIdAnuncio());
         anuncioPublicoRef.removeValue();

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -29,6 +30,7 @@ import java.util.List;
 import br.com.fabricio.olxclone.R;
 import br.com.fabricio.olxclone.adapter.AnuncioAdapter;
 import br.com.fabricio.olxclone.helper.FirebaseHelper;
+import br.com.fabricio.olxclone.helper.RecyclerItemClickListener;
 import br.com.fabricio.olxclone.model.Anuncio;
 import dmax.dialog.SpotsDialog;
 
@@ -62,6 +64,28 @@ public class AnunciosActivity extends AppCompatActivity {
         recyclerViewMeusAnuncios.setAdapter(adapter);
 
         carregarAnunciosPublicos();
+
+        recyclerViewMeusAnuncios.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerViewMeusAnuncios,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Anuncio anuncioSelecionado = lsAnuncios.get(position);
+                        Intent intent = new Intent(AnunciosActivity.this, DetalhesProdutoActivity.class);
+                        intent.putExtra("anuncioSelecionado", anuncioSelecionado);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+                }));
+
     }
 
     public void filtrarPorEstado(View view){
@@ -229,6 +253,7 @@ public class AnunciosActivity extends AppCompatActivity {
                 }
                 Collections.reverse(lsAnuncios);
                 adapter.notifyDataSetChanged();
+                dialog.dismiss();
             }
 
             @Override
@@ -237,7 +262,6 @@ public class AnunciosActivity extends AppCompatActivity {
             }
         });
 
-        dialog.dismiss();
     }
 
     private void inicializarComponentes() {
