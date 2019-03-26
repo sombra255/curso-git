@@ -189,7 +189,6 @@ public class CadastrarAnuncioActivity extends AppCompatActivity implements View.
     private void exibirMensagemErro(String mensagem){
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
     }
-
     private void carregarDadosSpinner(){
         String[] estados = getResources().getStringArray(R.array.estados);
         String[] categoria = getResources().getStringArray(R.array.categoria);
@@ -202,6 +201,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity implements View.
         adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategoria.setAdapter(adapterCategoria);
     }
+
 
     private void inicializarComponentes() {
         edtTitulo = findViewById(R.id.cadastrar_anuncio_edtTitulo);

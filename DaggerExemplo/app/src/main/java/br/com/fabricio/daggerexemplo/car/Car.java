@@ -1,4 +1,4 @@
-package br.com.fabricio.daggerexemplo;
+package br.com.fabricio.daggerexemplo.car;
 
 import android.util.Log;
 
@@ -16,7 +16,14 @@ public class Car {
         this.wheels = wheels;
     }
 
+    @Inject
+    public void enableRemote(Remote remote){
+        remote.setListener(this);
+
+    }
+
     public void drive(){
+        engine.start();
         Log.d(TAG, "Driving...");
     }
 }
